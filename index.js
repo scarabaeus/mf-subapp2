@@ -5,25 +5,26 @@ import App from './App';
 import './index.css';
 
 export async function bootstrap() {
-  console.log('[react15] react app bootstraped');
+  console.log('[mf-subapp2] react app bootstraped');
 }
 
 export async function mount(props = {}) {
-  console.log('[react15] props from main framework', props);
+  console.log('[mf-subapp2] props from main framework', props);
   const { container } = props;
   ReactDOM.render(
     <App />,
-    container ? container.querySelector('#react15Root') : document.getElementById('react15Root'),
+    container
+      ? container.querySelector('#react15Root')
+      : document.getElementById('react15Root'),
   );
-  import('./dynamic.css').then(() => {
-    console.log('[react15] dynamic style load');
-  });
 }
 
 export async function unmount(props) {
   const { container } = props;
   ReactDOM.unmountComponentAtNode(
-    container ? container.querySelector('#react15Root') : document.getElementById('react15Root'),
+    container
+      ? container.querySelector('#react15Root')
+      : document.getElementById('react15Root'),
   );
 }
 
