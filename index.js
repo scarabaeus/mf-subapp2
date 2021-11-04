@@ -4,11 +4,11 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 
-export async function bootstrap() {
-  console.log('[mf-subapp2] react app bootstraped');
-}
+export const bootstrap = async () => {
+  console.log('[mf-subapp2] react app bootstrapped');
+};
 
-export async function mount(props = {}) {
+export const mount = async (props = {}) => {
   console.log('[mf-subapp2] props from main framework', props);
   const { container } = props;
   ReactDOM.render(
@@ -17,16 +17,16 @@ export async function mount(props = {}) {
       ? container.querySelector('#react15Root')
       : document.getElementById('react15Root'),
   );
-}
+};
 
-export async function unmount(props) {
+export const unmount = async (props) => {
   const { container } = props;
   ReactDOM.unmountComponentAtNode(
     container
       ? container.querySelector('#react15Root')
       : document.getElementById('react15Root'),
   );
-}
+};
 
 if (!window.__POWERED_BY_QIANKUN__) {
   bootstrap().then(mount);
